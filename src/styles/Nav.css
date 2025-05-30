@@ -1,0 +1,79 @@
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #808D7C;
+    padding: 16px 32px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    width: 100%;
+}
+
+.pages {
+    font-weight: 700;
+    font-family: "Tangerine", cursive;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 2.5em;
+    text-decoration: none;
+    color: #252424;
+    transition: transform 0.2s ease;
+    display: inline-block;
+    cursor: pointer;
+
+
+}
+
+.pages:hover {
+    color: #d94f70;
+    text-shadow: 0px 0px 8px #f07894;
+    filter: drop-shadow(0 0 8px #f38ca4);
+    transform: scale(1.1);
+    transition: transform 0.2s ease;
+    cursor: pointer;
+
+}
+
+.div-logo-pastel {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.div-logo-pastel img {
+    width: 80px;
+    height: 100px;
+}
+
+.div-logo-user-carrito {
+    display: flex;
+    margin: 20px;
+
+}
+
+.logos-nav {
+    padding: 8px;
+    width: 40px;
+    height: 40px;
+}
+
+.div-pages ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.div-pages ul li {
+    margin: 30px;
+}
+
+.logos-nav:hover {
+    filter: drop-shadow(0 0 8px #d94f70);
+    transform: scale(1.1);
+    transition: transform 0.2s ease;
+    cursor: pointer;
+}
