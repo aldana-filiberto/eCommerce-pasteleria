@@ -3,15 +3,14 @@ import Header from '../componentes/Header'
 import Main from '../componentes/Main'
 import Footer from '../componentes/Footer'
 
-const Home = ({ carrito, agregarProducto, borrarProducto, vaciarCarrito }) => {
+const Home = ({productos, carrito, agregarProducto, borrarProducto, vaciarCarrito, cargando, error, setFiltros }) => {
 
 
     return (
         <div>
-            <Header carrito={carrito} borrarProducto={borrarProducto} vaciarCarrito={vaciarCarrito} />
-            <Main agregarProducto={ agregarProducto} />
-            <Footer   />
-
+            <Header productos={productos} carrito={carrito} borrarProducto={borrarProducto} vaciarCarrito={vaciarCarrito} />
+            <Main productos={productos} agregarProducto={agregarProducto} cargando={cargando} error={error} setFiltros={setFiltros}  />
+            <Footer />
         </div>
     )
 }

@@ -5,7 +5,7 @@ import Footer from '../componentes/Footer'
 import '../styles/Nav.css'
 import '../styles/Footer.css'
 
-const Productos = ({ carrito, agregarProducto, borrarProducto, vaciarCarrito, filtros }) => {
+const Productos = ({ carrito, agregarProducto, borrarProducto, vaciarCarrito, productos, cargando,error, setFiltros }) => {
 
     let style = {
         maxWidth: '800px',
@@ -14,17 +14,14 @@ const Productos = ({ carrito, agregarProducto, borrarProducto, vaciarCarrito, fi
         fontSize: '3.5em',
         color: '#d94f70',
         marginBottom: '20px',
-
-
     }
 
     return (
         <div>
             <Header carrito={carrito} borrarProducto={borrarProducto} vaciarCarrito={vaciarCarrito} />
-            <h3 className='titulo-dibujado' style={style}>Pasteleria</h3>
-            <ListaProductos agregarProducto={agregarProducto} filtro={{ nombre: '', tipo: 'pasteleria', masVendido: undefined }} />
-            <h3 className='titulo-dibujado' style={style} >Panaderia</h3>
-            <ListaProductos agregarProducto={agregarProducto} filtro={{ nombre: '', tipo: 'panaderia', masVendido: undefined }} />
+            <h3 className='titulo-dibujado' style={style}>Todos nuestros productos</h3>
+            <ListaProductos agregarProducto={agregarProducto} productos={productos} cargando={cargando} error={error} setFiltros={setFiltros} 
+            tipo={''} nombre={''} masVendido={undefined}  />
             <Footer />
 
         </div>

@@ -1,48 +1,18 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import Producto from './Producto'
 import '../styles/Productos.css';
 import spinner from '../assets/iconos/loading.gif'
 
-const ListaProductos = ({ agregarProducto, filtro = {} }) => {
+const ListaProductos = ({ agregarProducto, productos, cargando, error, setFiltros, tipo, nombre, masVendido }) => {
 
-    const [productos, setProductos] = useState([]);
-    const [cargando, setCargando] = useState(true);
-    const [error, setError] = useState(null);
+    // console.log(productos)
+    // console.log(Array.isArray(productos))
 
     useEffect(() => {
-        fetch('/productos.json')
-            .then((response) => {
-                if (!response.ok) {
-                    throw new Error('No se pudo cargar el archivo JSON');
-                }
-                return response.json();
-            })
-            .then((data) => {
-                const productosFiltrados = data.filter((producto) => {
-                    const porTipo = filtro.tipo ? producto.tipo === filtro.tipo : true;
-                    const porNombre = filtro.nombre
-                        ? producto.nombre.toLowerCase().includes(filtro.nombre.toLowerCase())
-                        : true;
-                    const porMasVendido = filtro.masVendido !== undefined
-                        ? producto.masVendido === filtro.masVendido
-                        : true;
+        setFiltros({ tipo, nombre, masVendido});
+    }, []);
 
-                    return porTipo && porNombre && porMasVendido;
-                });
-
-                setTimeout(() => {
-                    setProductos(productosFiltrados);
-                    setCargando(false);
-                }, 2000);
-            })
-            .catch((error) => {
-                console.error('Error al cargar productos:', error);
-                setError('Hubo un problema al cargar los productos.');
-                setCargando(false);
-            });
-    }, [filtro]);
-
-    if (cargando) return <img src={spinner} alt="" width={80} height={80}/> ;
+    if (cargando) return <img src={spinner} alt="" width={80} height={80} />;
     if (error) return <p>{error}</p>;
 
     return (
