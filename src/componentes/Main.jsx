@@ -5,7 +5,7 @@ import SobreNosotros from './SobreNosotros'
 import ListaProductos from './ListaProductos'
 import '../styles/Main.css';
 
-const Main = ({ agregarProducto, productos, cargando, error, setFiltros }) => {
+const Main = () => {
     const carruselImg = cargarImg(4);
     const imgProductos = cargarImgProductos(10);
 
@@ -26,8 +26,7 @@ const Main = ({ agregarProducto, productos, cargando, error, setFiltros }) => {
 
             <section>
                 <h2>Nuestros productos mas vendidos</h2>
-                <ListaProductos agregarProducto={agregarProducto} productos={productos} cargando={cargando} error={error} setFiltros={setFiltros}
-                    tipo={''} nombre={''} masVendido={true} />
+                <ListaProductos tipo={''} nombre={''} masVendido={true} />
             </section>
         </main>
     )

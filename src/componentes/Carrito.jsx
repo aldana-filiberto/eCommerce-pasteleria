@@ -1,9 +1,13 @@
-import React from 'react'
+import { useContext } from 'react';
+import { CartContext } from '../context/CartContext';
+
 import '../styles/Carrito.css'
 
-const Carrito = ({ carrito, isOpen, onClose, borrarProducto, vaciarCarrito }) => {
+const Carrito = ({isOpen, onClose }) => {
     // console.log('¿Es array?', Array.isArray(carrito));
     // console.log('Contenido:', carrito);
+
+    const {carrito, vaciarCarrito, borrarProducto } = useContext(CartContext)
 
     const total = carrito.reduce((acc, item) => acc + item.precio * item.cantidad, 0);
 
@@ -15,7 +19,7 @@ const Carrito = ({ carrito, isOpen, onClose, borrarProducto, vaciarCarrito }) =>
                 <button onClick={onClose} className='close-button'>X</button>
             </div>
             <div>
-                <button style={{margin: '10px'}} onClick={vaciarCarrito}> Vaciar carrito</button>
+                <button style={{ margin: '10px' }} onClick={vaciarCarrito}> Vaciar carrito</button>
             </div>
 
             <div className='cart-content'>
@@ -23,7 +27,7 @@ const Carrito = ({ carrito, isOpen, onClose, borrarProducto, vaciarCarrito }) =>
                     {carrito.map((item) => (
                         <div key={item.id} className="cart-item" style={{ color: 'black' }}>
                             <div>
-                                <img style={{ borderRadius: '8px'}} src={item.imagen} alt={item.nombre} width={120} height={100} />
+                                <img style={{ borderRadius: '8px' }} src={item.imagen} alt={item.nombre} width={120} height={100} />
                                 <p>{item.nombre}</p>
                                 <p>${item.precio}</p>
                             </div>

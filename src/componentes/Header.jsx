@@ -2,11 +2,11 @@ import React, { useState, useEffect } from 'react'
 import Nav from '../componentes/nav'
 import '../styles/Header.css'
 
-const Header = ({ carrito, borrarProducto, vaciarCarrito }) => {
+const Header = () => {
 
     return (
         <header>
-            <Nav carrito={carrito} borrarProducto={borrarProducto} vaciarCarrito={vaciarCarrito} />
+            <Nav  />
         </header>
     )
 }

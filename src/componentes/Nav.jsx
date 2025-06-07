@@ -7,7 +7,7 @@ import login from '../assets/iconos/login.svg'
 import carritoIco from '../assets/iconos/carrito.svg'
 import Carrito from './Carrito'
 
-const Nav = ({carrito, borrarProducto, vaciarCarrito}) => {
+const Nav = () => {
 
     const [isCartOpen, setCartOpen] = useState(false)
 
@@ -30,7 +30,7 @@ const Nav = ({carrito, borrarProducto, vaciarCarrito}) => {
             <div className='div-logo-user-carrito'>
                 <img src={login} className='logos-nav' />
                 <img src={carritoIco} className='logos-nav'  onClick={()=> setCartOpen(true)} />
-                <Carrito carrito={carrito} isOpen={isCartOpen} onClose={()=> setCartOpen(false)} borrarProducto={borrarProducto} vaciarCarrito={vaciarCarrito}/>
+                <Carrito isOpen={isCartOpen} onClose={()=> setCartOpen(false)} />
             </div>
 
         </nav>

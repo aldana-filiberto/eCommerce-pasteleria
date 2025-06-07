@@ -5,7 +5,7 @@ import Footer from '../componentes/Footer'
 import '../styles/Nav.css'
 import '../styles/Footer.css'
 
-const Productos = ({ carrito, agregarProducto, borrarProducto, vaciarCarrito, productos, cargando,error, setFiltros }) => {
+const Productos = () => {
 
     let style = {
         maxWidth: '800px',
@@ -18,10 +18,9 @@ const Productos = ({ carrito, agregarProducto, borrarProducto, vaciarCarrito, pr
 
     return (
         <div>
-            <Header carrito={carrito} borrarProducto={borrarProducto} vaciarCarrito={vaciarCarrito} />
+            <Header />
             <h3 className='titulo-dibujado' style={style}>Todos nuestros productos</h3>
-            <ListaProductos agregarProducto={agregarProducto} productos={productos} cargando={cargando} error={error} setFiltros={setFiltros} 
-            tipo={''} nombre={''} masVendido={undefined}  />
+            <ListaProductos tipo={''} nombre={''} masVendido={undefined}  />
             <Footer />
 
         </div>

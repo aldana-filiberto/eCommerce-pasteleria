@@ -1,10 +1,10 @@
 import React from 'react'
 import Header from '../componentes/Header'
 
-const Carrito = ({ carrito, agregarProducto, borrarProducto, vaciarCarrito }) => {
+const Carrito = () => {
     return (
         <div>
-            <Header carrito={carrito} borrarProducto={borrarProducto} vaciarCarrito={vaciarCarrito} />
+            <Header />
 
         </div>
     )

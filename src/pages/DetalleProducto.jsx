@@ -1,7 +1,10 @@
 import { useParams, Link } from 'react-router-dom';
+import { useContext } from 'react';
+import { CartContext } from '../context/CartContext';
 import '../styles/DetallesProducto.css';
 
-const DetalleProducto = ({ productos, agregarProducto }) => {
+const DetalleProducto = () => {
+    const { productos, agregarProducto } = useContext(CartContext)
     const { id } = useParams();
     const producto = productos.find(producto => producto.id == id);
 
@@ -18,7 +21,7 @@ const DetalleProducto = ({ productos, agregarProducto }) => {
                 <p><strong>Precio:</strong> ${producto.precio}</p>
                 <p><strong>Stock disponible:</strong> {producto.stock}</p>
 
-                <button onClick={() => agregarProducto(producto) } className="btn-agregar">
+                <button onClick={() => agregarProducto(producto)} className="btn-agregar">
                     Agregar al carrito
                 </button>
 
