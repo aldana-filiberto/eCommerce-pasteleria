@@ -3,20 +3,18 @@ import { CartContext } from '../context/CartContext';
 
 import '../styles/Carrito.css'
 
-const Carrito = ({isOpen, onClose }) => {
-    // console.log('¿Es array?', Array.isArray(carrito));
-    // console.log('Contenido:', carrito);
+const Carrito = () => {
 
-    const {carrito, vaciarCarrito, borrarProducto } = useContext(CartContext)
+    const {carrito, vaciarCarrito, borrarProducto, isCartOpen, setCartOpen } = useContext(CartContext)
 
     const total = carrito.reduce((acc, item) => acc + item.precio * item.cantidad, 0);
 
     return (
-        <div className={`cart-drawer ${isOpen ? 'open' : ''}`}>
+        <div className={`cart-drawer ${isCartOpen ? 'open' : ''}`}>
 
             <div className='cart-header'>
                 <h2 style={{ fontFamily: 'Roboto', fontSize: '3em', color: 'black' }}>Carrito de Compras</h2>
-                <button onClick={onClose} className='close-button'>X</button>
+                <button onClick={() => setCartOpen(false)} className='close-button'> X </button>
             </div>
             <div>
                 <button style={{ margin: '10px' }} onClick={vaciarCarrito}> Vaciar carrito</button>

@@ -1,15 +1,17 @@
 import React from 'react'
 import '../styles/Nav.css'
-import { useState } from 'react'
+import { useContext } from 'react'
+import { CartContext } from '../context/CartContext'
 import {Link} from 'react-router-dom'
 import pastel from '../assets/iconos/pastel2.png'
 import login from '../assets/iconos/login.svg'
 import carritoIco from '../assets/iconos/carrito.svg'
 import Carrito from './Carrito'
 
+
 const Nav = () => {
 
-    const [isCartOpen, setCartOpen] = useState(false)
+    const {isCartOpen, setCartOpen} = useContext(CartContext)
 
     return (
         <nav>
@@ -28,9 +30,10 @@ const Nav = () => {
             </div>
 
             <div className='div-logo-user-carrito'>
-                <img src={login} className='logos-nav' />
+                <Link to= "/login"><img src={login} className='logos-nav' /></Link>
                 <img src={carritoIco} className='logos-nav'  onClick={()=> setCartOpen(true)} />
-                <Carrito isOpen={isCartOpen} onClose={()=> setCartOpen(false)} />
+                <Link to="/admin"> Admin </Link>
+                <Carrito />
             </div>
 
         </nav>

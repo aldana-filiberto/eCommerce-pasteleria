@@ -1,4 +1,4 @@
-import {useEffect, useState, createContext } from "react";
+import { useEffect, useState, createContext } from "react";
 
 export const CartContext = createContext()
 
@@ -8,6 +8,8 @@ export const CartProvider = ({ children }) => {
     const [filtros, setFiltros] = useState({ tipo: '', nombre: '', masVendido: true })
     const [cargando, setCargando] = useState(true);
     const [error, setError] = useState(null);
+    const [isCartOpen, setCartOpen] = useState(false)
+    const [isAuth, setIsAuth] = useState(false)
 
     useEffect(() => {
         fetch('/productos.json')
@@ -78,7 +80,7 @@ export const CartProvider = ({ children }) => {
 
     return (
 
-        <CartContext.Provider value={{ productos, setFiltros, carrito, filtros, cargando, error, agregarProducto, borrarProducto, vaciarCarrito }}>
+        <CartContext.Provider value={{ productos, isCartOpen, carrito, filtros, cargando, error, isAuth, setIsAuth, agregarProducto, borrarProducto, vaciarCarrito, setFiltros, setCartOpen }}>
             {children}
         </CartContext.Provider>
 
