@@ -1,59 +1,35 @@
-import { useEffect, useState, createContext } from "react";
+import { useState, createContext, useContext } from "react";
+import { useNavigate } from "react-router-dom";
+import { AuthContext } from "./AuthContext";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export const CartContext = createContext()
 
 export const CartProvider = ({ children }) => {
-    const [productos, setProductos] = useState([]);
-    const [carrito, setCarrito] = useState([])
-    const [filtros, setFiltros] = useState({ tipo: '', nombre: '', masVendido: true })
+    const [carrito, setCarrito] = useState([]);
     const [cargando, setCargando] = useState(true);
     const [error, setError] = useState(null);
-    const [isCartOpen, setCartOpen] = useState(false)
-    const [isAuth, setIsAuth] = useState(false)
+    const [isCartOpen, setCartOpen] = useState(false);
+    const navigate = useNavigate();
 
-    useEffect(() => {
-        fetch('/productos.json')
-            .then((response) => {
-                if (!response.ok) {
-                    throw new Error('No se pudo cargar el archivo JSON');
-                }
-                return response.json();
-            })
-            .then((data) => {
-                const productosFiltrados = data.filter((producto) => {
-                    const porTipo = filtros.tipo ? producto.tipo === filtros.tipo : true;
-                    const porNombre = filtros.nombre ? producto.nombre.toLowerCase().includes(filtros.nombre.toLowerCase())
-                        : true;
-                    const porMasVendido = filtros.masVendido !== undefined
-                        ? producto.masVendido === filtros.masVendido
-                        : true;
+    const { isAuth } = useContext(AuthContext);
 
-                    return porTipo && porNombre && porMasVendido;
-                });
-
-                setTimeout(() => {
-                    setProductos(productosFiltrados);
-                    setCargando(false);
-                }, 2000);
-            })
-            .catch((error) => {
-                console.error('Error al cargar productos:', error);
-                setError('Hubo un problema al cargar los productos.');
-                setCargando(false);
-            });
-    }, [filtros]);
-
-    const agregarProducto = (producto) => {
-        const productoEnCarrito = carrito.find(item => item.id === producto.id);
-
-        if (productoEnCarrito) {
-            setCarrito(carrito.map(item =>
-                item.id === producto.id
-                    ? { ...item, cantidad: item.cantidad + 1 }
-                    : item
-            ));
+    const agregarProducto = (producto, cantidad) => {
+        if (!isAuth) {
+            navigate('/login')
         } else {
-            setCarrito([...carrito, { ...producto, cantidad: 1 }]);
+            const productoEnCarrito = carrito.find(item => item.id === producto.id);
+            if (productoEnCarrito) {
+                setCarrito(carrito.map(item =>
+                    item.id === producto.id
+                        ? { ...item, cantidad: item.cantidad + cantidad }
+                        : item
+                ));
+            } else {
+                setCarrito([...carrito, { ...producto, cantidad: cantidad }]);
+            }
+            toast.success(`¡El producto ${producto.nombre} se agregado al carrito!`);
         }
     };
 
@@ -68,19 +44,19 @@ export const CartProvider = ({ children }) => {
             }
             return item;
         }).filter(item => item !== null);
-
+        toast.error(`El producto se elimiado del carrito.`);
         setCarrito(nuevoCarrito);
+
     };
 
     const vaciarCarrito = () => {
         setCarrito([]);
+        toast.error(`Se ha eliminado todos los productos del carrito.`);
     }
-
-
 
     return (
 
-        <CartContext.Provider value={{ productos, isCartOpen, carrito, filtros, cargando, error, isAuth, setIsAuth, agregarProducto, borrarProducto, vaciarCarrito, setFiltros, setCartOpen }}>
+        <CartContext.Provider value={{ isCartOpen, carrito, cargando, error, setCargando, agregarProducto, borrarProducto, vaciarCarrito, setCartOpen }}>
             {children}
         </CartContext.Provider>
 

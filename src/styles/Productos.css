@@ -1,67 +1,177 @@
 @import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Quicksand:wght@300..700&display=swap');
 
 
-.listaTarjetas {
+/* Fondo general */
+body {
+    background-color: #fff9f4;
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.product-title {
+    text-align: center;
+    margin: 2rem 0;
+    color: #d17878;
+    position: relative;
+    font-family: 'Tangerine', cursive;
+    font-size: 3.5em;
+}
+
+.product-title::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 4px;
+    background-color: #f9c5c5;
+    margin: 10px auto 0;
+    border-radius: 2px;
+}
+
+.checkbox-container {
     display: flex;
-    justify-content: center;
     align-items: center;
-    flex-direction: row;
-    flex-wrap: wrap;
+    justify-content: space-around;
 }
 
-.tarjeta {
-    width: 200px;
-    height: 300px;
-    border-radius: 15px;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    margin: 1%;
-    padding: 1%;
-    background-color: #D0B8A8;
-    /* transition: transform 1s ease, filter 1s ease;
-    object-fit: cover; */
-
-}
-
-.tarjeta span {
-    font-family: "Poppins", sans-serif;
-    font-weight: 400;
-    font-style: normal;
-    margin: 5px;
-}
-
-.tarjeta img {
-    border-radius: 8px;
-    width: 150px;
-    height: 130px;
-
-}
-button {
+.form-buscar input {
+    padding: 10px;
+    border: 1px solid #ccc;
     border-radius: 6px;
-    border: 1px solid transparent;
-    padding: 0.5em;
-    font-family: "Poppins", sans-serif;
-    font-size: 1em;
-    font-weight: 400;
-    background-color: #DFD3C3;
+    font-size: 1rem;
+    transition: border-color 0.2s ease-in-out;
+}
+
+.form-buscar input:focus {
+    border-color: #3498db;
+    outline: none;
+}
+
+.form-buscar button[type="submit"] {
+    background-color: #2ecc71;
+    color: white;
+    border: none;
+    padding: 12px;
+    font-size: 1rem;
+    border-radius: 6px;
     cursor: pointer;
-    transition: transform 0.5s ease, filter 0.5s ease;
+    transition: background-color 0.3s ease;
+}
+
+.form-buscar button[type="submit"]:hover {
+    background-color: #27ae60;
+}
+
+
+/*------------------------------- Product CARD --------------------------------------------*/
+
+.product-card {
+    background-color: #fff0f5;
+    border: 2px solid #ffb6c1;
+    border-radius: 12px;
+    padding: 1rem;
+    box-shadow: 0px 2px 8px rgba(255, 105, 180, 0.2);
+    transition: transform 0.2s ease-in-out;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin: 1%;
+    width: 15%;
+}
+
+.product-card:hover {
+    transform: scale(1.03);
+}
+
+.product-card img {
+    width: 100%;
+    height: 100%;
+    max-height: 160px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+
+.product-content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+
+}
+
+.product-content span {
+    margin: 5px;
+    line-height: 1.2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    display: block;
     margin-top: auto;
 }
 
-button:hover {
-    border-color: #BF9264;
-    transform: scale(1.1);
+.product-actions {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    margin-top: auto;
+    width: 100%;
+    gap: 8px;
+}
 
+.addCart,
+.details {
+    background-color: #ec407a;
+    color: white;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    width: 80%;
+    font-size: small;
+    text-align: center;
+    text-decoration: none;
+}
+
+.addCart:hover,
+.details:hover {
+    background-color: #08c24d;
+    text-decoration: none;
+}
+
+.select-cantidad {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 5px;
+    ;
+}
+
+.select-cantidad button {
+    margin: 5px 10px;
+    background-color: #6f4c42;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
 }
 
 
-/* 
-.tarjeta:hover {
-    transform: scale(1.3);
-    margin: 5%;
-    filter: brightness(1.05);
+/* Spinner secundario centrado */
+.spinner-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 5rem;
+}
 
-} */
+.spinner {
+    animation: spin 1s linear infinite;
+}

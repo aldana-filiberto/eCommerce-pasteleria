@@ -1,13 +1,21 @@
-import React from 'react'
-import { cargarImg, cargarImgProductos } from '../utils/dataSlider'
-import Slider from './Slider'
-import SobreNosotros from './SobreNosotros'
-import ListaProductos from './ListaProductos'
-import '../styles/Main.css';
+import { useContext, useEffect } from 'react'
+import { CartContext } from "../../context/CartContext";
+import { ProductContext } from "../../context/ProductContext";
+import { cargarImg, cargarImgProductos } from '../../utils/dataSlider'
+import Slider from '../Slider'
+import SobreNosotros from '../SobreNosotros'
+import ListaProductos from '../ListaProductos'
+import '../../styles/Main.css';
+import ProductCard from '../ProductCard';
 
 const Main = () => {
+    const {setFiltros } = useContext(ProductContext);
     const carruselImg = cargarImg(4);
     const imgProductos = cargarImgProductos(10);
+
+    useEffect(() => {
+        setFiltros({ nombre: '', categoria: '', masVendido: true });
+    }, []);
 
     return (
         <main>
@@ -26,7 +34,7 @@ const Main = () => {
 
             <section>
                 <h2>Nuestros productos mas vendidos</h2>
-                <ListaProductos tipo={''} nombre={''} masVendido={true} />
+                <ListaProductos Component={ProductCard}/>
             </section>
         </main>
     )

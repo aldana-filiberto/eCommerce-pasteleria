@@ -1,29 +1,48 @@
-import { useContext, useEffect } from 'react';
-import { CartContext } from '../context/CartContext';
-import Producto from './Producto'
-import '../styles/Productos.css';
+import { useContext } from 'react';
+import { ProductContext } from '../context/ProductContext';
 import spinner from '../assets/iconos/loading.gif'
+import '../styles/Productos.css'
+import SinResultados from './SinResultados';
 
-const ListaProductos = ({ tipo, nombre, masVendido }) => {
+const ListaProductos = ({ Component}) => {
 
-    const { productos, cargando, error, setFiltros } = useContext(CartContext)
+    const { cargando, error, productosFiltrados } = useContext(ProductContext);
 
-    // useEffect(() => {
-    //     setFiltros({ tipo, nombre, masVendido });
-    // }, []);
-
-    if (cargando) return <img src={spinner} alt="" width={80} height={80} />;
-    if (error) return <p>{error}</p>;
+    const style = {
+    display: "flex",
+    flexDirection: "row",
+    justifyContent:'center',
+    flexWrap: 'wrap',
+    padding: '2rem'
+    }
 
     return (
-        <section>
-            <div className='listaTarjetas'>
-                {productos.map((producto, index) => (
-                    <Producto key={index} producto={producto} />
-                ))}
-            </div>
-        </section>
-    );
+        <>
+            {(cargando) ? (
+                <div className="spinner-container">
+                    <img className='spinner' src={spinner} alt="Cargando..." width={80} height={80} />
+                    <p>{error}</p>
+                </div>
+
+            ) : (
+                <>
+                    {(productosFiltrados.length != 0) ? (
+
+                        <section>
+                            <div style={style}>
+                                {productosFiltrados.map((producto, index) => (
+                                    <Component key={index} producto={producto} />
+                                ))}
+                            </div>
+                        </section>
+                    ) : (
+                        <SinResultados />
+                    )
+                    }
+                </>
+            )}
+        </>
+    )
 };
 
 export default ListaProductos;

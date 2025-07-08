@@ -1,0 +1,292 @@
+[
+    {
+        "id": "1",
+        "nombre": "Torta de Chocolate con crema y frutillas",
+        "descripcion": "Bizcochuelo húmedo de chocolate, crema suave y frescas frutillas. Un clásico irresistible.",
+        "categoria": "pasteleria",
+        "precio": 3500,
+        "imagen": "/pasteleria/torta1.jpeg",
+        "stock": 10,
+        "masVendido": false
+    },
+    {
+        "id": "2",
+        "nombre": "Chocotorta con crema y frutillas",
+        "descripcion": "Capas de galleta, dulce de leche y crema, coronadas con frutillas. La torta favorita de todos.",
+        "categoria": "pasteleria",
+        "precio": 4200,
+        "imagen": "/pasteleria/torta2.jpeg",
+        "stock": 10,
+        "masVendido": true
+    },
+    {
+        "id": "3",
+        "nombre": "Roggel",
+        "descripcion": "Tradición argentina en capas finas de masa, rellena de dulce de leche y cubierta de chocolate.",
+        "categoria": "pasteleria",
+        "precio": 3800,
+        "imagen": "/pasteleria/torta3.jpeg",
+        "stock": 10,
+        "masVendido": true
+    },
+    {
+        "id": "4",
+        "nombre": "Torta de Chocolate",
+        "descripcion": "Intensa torta de chocolate con glaseado, nueces crocantes y un toque de cerezas.",
+        "categoria": "pasteleria",
+        "precio": 3500,
+        "imagen": "/pasteleria/torta4.jpeg",
+        "stock": 10,
+        "masVendido": false
+    },
+    {
+        "id": "5",
+        "nombre": "Torta Selva Negra",
+        "descripcion": "Bizcochuelo de chocolate con crema batida y cerezas. Elegante y deliciosa.",
+        "categoria": "pasteleria",
+        "precio": 4200,
+        "imagen": "/pasteleria/torta5.jpeg",
+        "stock": 10,
+        "masVendido": false
+    },
+    {
+        "id": "6",
+        "nombre": "Pastel de cumpleaños",
+        "descripcion": "Personalizá tu pastel con colores, sabores y decoración. Ideal para celebrar con estilo.",
+        "categoria": "pasteleria",
+        "precio": 3800,
+        "imagen": "/pasteleria/torta6.jpeg",
+        "stock": 10,
+        "masVendido": true
+    },
+    {
+        "id": "7",
+        "nombre": "Torta Selva Negra",
+        "descripcion": "Una explosión de chocolate y cerezas en cada bocado. Pura tentación.",
+        "categoria": "pasteleria",
+        "precio": 4200,
+        "imagen": "/pasteleria/torta7.jpeg",
+        "stock": 10,
+        "masVendido": true
+    },
+    {
+        "id": "8",
+        "nombre": "Torre de wafles",
+        "descripcion": "Crujientes wafles apilados con crema, frutas y chocolate. Un festín visual y de sabor.",
+        "categoria": "pasteleria",
+        "precio": 3800,
+        "imagen": "/pasteleria/torta8.jpeg",
+        "stock": 10,
+        "masVendido": true
+    },
+    {
+        "id": "9",
+        "nombre": "Pastel de cumpleaños",
+        "descripcion": "Pastel con temática de chocolate y decoración festiva. ¡Perfecto para sorprender!",
+        "categoria": "pasteleria",
+        "precio": 4200,
+        "imagen": "/pasteleria/torta9.jpeg",
+        "stock": 10,
+        "masVendido": false
+    },
+    {
+        "id": "10",
+        "nombre": "Flan",
+        "descripcion": "Suave flan casero bañado en caramelo y decorado con frutillas frescas.",
+        "categoria": "pasteleria",
+        "precio": 3800,
+        "imagen": "/pasteleria/torta10.jpeg",
+        "stock": 10,
+        "masVendido": false
+    },
+    {
+        "id": "11",
+        "nombre": "Torta de casamientos",
+        "descripcion": "Elegante torta de tres pisos con detalles románticos. Ideal para bodas soñadas.",
+        "categoria": "pasteleria",
+        "precio": 4200,
+        "imagen": "/pasteleria/torta11.jpeg",
+        "stock": 10,
+        "masVendido": false
+    },
+    {
+        "id": "12",
+        "nombre": "Postres en taza",
+        "descripcion": "Mini postres de chocolate y dulce de leche en formato individual. Irresistibles y prácticos.",
+        "categoria": "pasteleria",
+        "precio": 3800,
+        "imagen": "/pasteleria/torta12.jpeg",
+        "stock": 10,
+        "masVendido": false
+    },
+    {
+        "id": "13",
+        "nombre": "Bombones de pascua",
+        "descripcion": "Dulces con forma de conejito, rellenos de sabores sorpresa. Perfectos para regalar.",
+        "categoria": "pasteleria",
+        "precio": 4200,
+        "imagen": "/pasteleria/torta13.jpeg",
+        "stock": 10,
+        "masVendido": false
+    },
+    {
+        "id": "14",
+        "nombre": "Medialunas con masa rosa",
+        "descripcion": "Medialunas con un toque de color rosa y glaseado. Dulces, tiernas y adorables.",
+        "categoria": "panaderia",
+        "precio": 3500,
+        "imagen": "/panaderia/pan1.jpeg",
+        "stock": 10,
+        "masVendido": true
+    },
+    {
+        "id": "15",
+        "nombre": "Pan de muerto Mexicano",
+        "descripcion": "Receta tradicional con aroma a azahar. Tierno, dulce y con historia.",
+        "categoria": "panaderia",
+        "precio": 4200,
+        "imagen": "/panaderia/pan2.jpeg",
+        "stock": 10,
+        "masVendido": false
+    },
+    {
+        "id": "16",
+        "nombre": "Mini budin",
+        "descripcion": "Budincito esponjoso de naranja con corazón de dulce de leche. Ideal para acompañar el té.",
+        "categoria": "panaderia",
+        "precio": 3800,
+        "imagen": "/panaderia/pan3.jpeg",
+        "stock": 10,
+        "masVendido": false
+    },
+    {
+        "id": "17",
+        "nombre": "Rosca de Pascua",
+        "descripcion": "Rosca artesanal con crema pastelera y frutas abrillantadas. Pura tradición.",
+        "categoria": "panaderia",
+        "precio": 3500,
+        "imagen": "/panaderia/pan4.jpeg",
+        "stock": 10,
+        "masVendido": false
+    },
+    {
+        "id": "18",
+        "nombre": "Canasta de pan con panes",
+        "descripcion": "Una canasta comestible llena de mini panes surtidos. Sorprendé con creatividad.",
+        "categoria": "panaderia",
+        "precio": 4200,
+        "imagen": "/panaderia/pan5.jpeg",
+        "stock": 10,
+        "masVendido": true
+    },
+    {
+        "id": "19",
+        "nombre": "Medialunas decoradas",
+        "descripcion": "Clásicas medialunas con toppings dulces y colores. Un desayuno que alegra.",
+        "categoria": "panaderia",
+        "precio": 3800,
+        "imagen": "/panaderia/pan6.jpeg",
+        "stock": 10,
+        "masVendido": true
+    },
+    {
+        "id": "20",
+        "nombre": "Pan dulces para navidad",
+        "descripcion": "Pan dulce con chips de chocolate o frutas secas. El favorito de las fiestas.",
+        "categoria": "panaderia",
+        "precio": 4200,
+        "imagen": "/panaderia/pan7.jpeg",
+        "stock": 10,
+        "masVendido": true
+    },
+    {
+        "id": "21",
+        "nombre": "Budin de zapallo",
+        "descripcion": "Budín original con zapallo, chocolate y semillas. Sano, dulce y diferente.",
+        "categoria": "panaderia",
+        "precio": 3800,
+        "imagen": "/panaderia/pan8.jpeg",
+        "stock": 10,
+        "masVendido": false
+    },
+    {
+        "id": "22",
+        "nombre": "Medialunas decoradas",
+        "descripcion": "Medialunas cubiertas de glasé y confites. Una fiesta en cada mordida.",
+        "categoria": "panaderia",
+        "precio": 4200,
+        "imagen": "/panaderia/pan9.jpeg",
+        "stock": 10,
+        "masVendido": true
+    },
+    {
+        "id": "23",
+        "nombre": "Medialunas decoradas",
+        "descripcion": "Medialunas rellenas y decoradas para darte un gusto especial en cualquier momento.",
+        "categoria": "panaderia",
+        "precio": 3800,
+        "imagen": "/panaderia/pan10.jpeg",
+        "stock": 10,
+        "masVendido": false
+    },
+    {
+        "id": "24",
+        "nombre": "Budin frutal",
+        "descripcion": "Esponjoso budín con trozos de frutas naturales. Ideal para compartir.",
+        "categoria": "panaderia",
+        "precio": 4200,
+        "imagen": "/panaderia/pan11.jpeg",
+        "stock": 10,
+        "masVendido": false
+    },
+    {
+        "id": "25",
+        "nombre": "Budin de chocolate",
+        "descripcion": "Budín intenso de chocolate con nueces o almendras. Tentación pura.",
+        "categoria": "panaderia",
+        "precio": 3800,
+        "imagen": "/panaderia/pan12.jpeg",
+        "stock": 10,
+        "masVendido": false
+    },
+    {
+        "id": "26",
+        "nombre": "Rolls de chocolate y canela",
+        "descripcion": "Rolls esponjosos con relleno de chocolate derretido y canela. Calentitos, son un vicio.",
+        "categoria": "panaderia",
+        "precio": 4200,
+        "imagen": "/panaderia/pan13.jpeg",
+        "stock": 10,
+        "masVendido": false
+    },
+    {
+        "id": "27",
+        "nombre": "Rollitos de pastelera y dulce",
+        "descripcion": "Rollitos tiernos con pastelera o dulce de leche. Perfectos para la merienda.",
+        "categoria": "panaderia",
+        "precio": 3800,
+        "imagen": "/panaderia/pan14.jpeg",
+        "stock": 10,
+        "masVendido": false
+    },
+    {
+        "id": "28",
+        "nombre": "Pizza cookie :D",
+        "descripcion": "Base de galleta gigante cubierta con crema, chispas y golosinas. ¡Divertida y deliciosa!",
+        "categoria": "pasteleria",
+        "precio": 4200,
+        "imagen": "/panaderia/pan15.jpeg",
+        "stock": 10,
+        "masVendido": false
+    },
+    {
+        "id": "29",
+        "nombre": "Masitas",
+        "descripcion": "Masitas de manteca rellenas de membrillo. Dulce sabor casero en cada mordida.",
+        "categoria": "panaderia",
+        "precio": 3800,
+        "imagen": "/panaderia/pan16.jpeg",
+        "stock": 10,
+        "masVendido": false
+    }
+]

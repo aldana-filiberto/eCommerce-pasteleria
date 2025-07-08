@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
-import Nav from '../componentes/nav'
-import '../styles/Header.css'
+import Nav from './nav'
+import '../../styles/Header.css'
 
 const Header = () => {
 

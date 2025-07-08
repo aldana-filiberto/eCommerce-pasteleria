@@ -18,96 +18,107 @@
 body {
     background-color: #F8EDE3;
 }
-
-/*----------------------------------------------------- MAIN --------------------------------------------------------------------*/
-
-.carrusel {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
+/* Estilos generales del main */
+main {
+    background-color: #fff9f4;
+    padding: 2rem 1rem;
+    font-family: 'Poppins', sans-serif;
 }
 
-.carrusel img {
-    margin: 10px;
+/* Secciones internas */
+.sobre-nosotros {
+    display: flex;
+    flex-direction: row;
+    gap: 3rem;
+    padding-bottom: 3rem;
+}
+
+/* Cada bloque (sobre nosotros / productos) */
+.section {
+    background-color: #fff0f5;
+    border: 2px solid #ffb6c1;
     border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease, filter 0.3s ease;
-    object-fit: cover;
+    padding: 2rem;
+    box-shadow: 0px 4px 10px rgba(255, 105, 180, 0.15);
+    max-width: 1000px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* Títulos secundarios */
+.section h3,
+main section h2 {
+    font-family: 'Pacifico', cursive;
+    color: #d17878;
+    font-size: 2em;
+    margin-bottom: 1.5rem;
+}
+
+/* Slider centrado */
+.section .slider-container,
+.section .slider {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Sección de productos más vendidos */
+main > section:last-of-type {
+    padding-top: 3rem;
+    background-color: #ffeef5;
+    border-top: 2px dashed #ffb6c1;
+}
+
+main > section:last-of-type h2 {
+    text-align: center;
+    font-family: 'Pacifico', cursive;
+    color: #d17878;
+    font-size: 2.5em;
+    margin-bottom: 2rem;
+}
+
+/* Carrusel */
+.carrusel {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin: 0 auto;
+    padding: 1rem 0;
+}
+
+/* Imagenes */
+.slide {
+    display: none;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.slide.active {
+    display: block;
+}
+
+/* Flechas de navegación */
+.atras,
+.siguiente {
+    cursor: pointer;
+    transition: transform 0.2s ease;
+    background-color: #ffe6eb;
+    border-radius: 50%;
+    padding: 8px;
+    box-shadow: 0 2px 8px rgba(255, 182, 193, 0.5);
 }
 
 .atras:hover,
 .siguiente:hover {
-    filter: drop-shadow(0 0 8px #e80909da);
     transform: scale(1.1);
-    transition: transform 0.2s ease;
-    cursor: pointer;
-    box-shadow: 0 0 10px rgba(232, 9, 9, 0.7);
+    background-color: #ffccd5;
 }
 
-
-.carrusel img:hover {
-    transform: scale(1.02);
-    filter: brightness(1.05);
+/* Imagen del slider */
+.slide img {
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    object-fit: cover;
 }
 
-.atras,
-.siguiente {
-    background-color: rgba(255, 255, 255, 0.85);
-    border: none;
-    border-radius: 50%;
-    padding: 8px;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.slide {
-    max-width: 100%;
-    height: auto;
-    opacity: 0;
-    transition: opacity 0.5s ease-in-out;
-
-}
-
-.slide.active {
-    opacity: 1;
-}
-
-/*----------------------------------------------------- SOBRE NOSOTROS--------------------------------------------------------------------*/
-
-
-.sobre-nosotros {
-    display: flex;
-    justify-content: center;
-    padding: 60px 20px;
-}
-
-.section {
-    padding: 20px;
-    margin: 20px;
-    background: #C9DABF;
-    border-radius: 15px;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
-}
-
-.sobre-nosotros-contenido {
-    max-width: 800px;
-    margin: 0 auto;
-    font-family: 'Roboto', sans-serif;
-}
-
-.sobre-nosotros h3,
-h2 {
-    max-width: 800px;
-    margin: 0 auto;
-    font-family: "Tangerine", cursive;
-    font-size: 3.5em;
-    color: #d94f70;
-    margin-bottom: 20px;
-
-}
-
-.sobre-nosotros p {
-    font-size: 1.1em;
-    line-height: 1.6;
-    color: #333;
-}

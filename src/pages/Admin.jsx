@@ -1,11 +1,89 @@
-import React from 'react'
+import { useContext } from 'react'
+import { AuthContext } from '../context/AuthContext';
+import { AdminContext } from '../context/AdminContext';
+import {ProductContext} from '../context/ProductContext';
+import { useNavigate, Link } from 'react-router-dom';
+import { IoMdExit } from "react-icons/io";
+import spinner from '../assets/iconos/loading.gif'
+import FormularioProducto from "../componentes/FormularioProducto";
+import FormularioEdicion from "../componentes/FormularioEdicion";
+import '../styles/admin.css';
+import CuadroBusqueda from '../componentes/CuadroBusqueda';
+import ListaProductos from '../componentes/ListaProductos';
+import AdminCard from '../componentes/AdminCard';
+
 
 const Admin = () => {
+
+    const { setIsAuth, setRole } = useContext(AuthContext);
+    const {
+        loading,
+        open,
+        setOpen,
+        openEditor,
+        setOpenEditor,
+        seleccionado,
+        setSeleccionado,
+        agregarProducto,
+        actualizarProducto,
+        eliminarProducto,
+    } = useContext(AdminContext);
+
+    const navigate = useNavigate();
+    const salir = () => {
+        navigate('/');
+        setIsAuth(false);
+        setRole('');
+        localStorage.removeItem('isAuth');
+        localStorage.removeItem('role');
+    };
+
+
     return (
-        <div>
-            <h1>Admin</h1>
+        <div className="container">
+            {loading ? (
+                <div className="spinner-container">
+                    <img className='spinner' src={spinner} alt="Cargando..." width={80} height={80} />
+                </div>
+            ) : (
+                <>
+                    <nav className='nav'>
+                        <ul className="nav" style={{ listStyle: 'none' }}>
+                            <li className="navItem">
+                                <button> <Link to='/'> Home </Link> </button>
+                                <button onClick={salir}> <IoMdExit /></button>
+                            </li>
+                        </ul>
+                    </nav>
+                    <h1 className="title">Panel Administrativo</h1>
+                    <CuadroBusqueda/>
+                    <ListaProductos Component={ AdminCard } />
+                    
+                </>
+
+            )}
+            <button className="btn-flotante" onClick={() => setOpen(true)}>+</button>
+
+            {open && !openEditor && (
+                <div className="modal-overlay">
+                    <div className="modal-content">
+                        <button className="modal-close" onClick={() => setOpen(false)}>✖</button>
+                        <FormularioProducto onAgregar={agregarProducto} />
+                    </div>
+                </div>
+            )}
+
+            {openEditor && (
+                <div className="modal-overlay">
+                    <div className="modal-content">
+                        <button className="modal-close" onClick={() => setOpenEditor(false)}>✖</button>
+                        <FormularioEdicion productoSeleccionado={seleccionado} onActualizar={actualizarProducto} />
+                    </div>
+                </div>
+            )}
         </div>
     )
 }
 
 export default Admin
+

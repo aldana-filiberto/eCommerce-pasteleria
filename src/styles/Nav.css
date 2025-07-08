@@ -1,79 +1,81 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;400;600&display=swap');
 
 nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #808D7C;
-    padding: 16px 32px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    position: sticky;
-    top: 0;
-    z-index: 1;
-    width: 100%;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0.5rem 1rem;
+    font-family: 'Poppins', sans-serif;
 }
 
-.pages {
-    font-weight: 700;
-    font-family: "Tangerine", cursive;
-    font-weight: 400;
-    font-style: normal;
-    font-size: 2.5em;
-    text-decoration: none;
-    color: #252424;
-    transition: transform 0.2s ease;
-    display: inline-block;
-    cursor: pointer;
-
-
-}
-
-.pages:hover {
-    color: #d94f70;
-    text-shadow: 0px 0px 8px #f07894;
-    filter: drop-shadow(0 0 8px #f38ca4);
-    transform: scale(1.1);
-    transition: transform 0.2s ease;
-    cursor: pointer;
-
-}
-
-.div-logo-pastel {
+.div-logo {
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    gap: 0.8rem;
 }
 
-.div-logo-pastel img {
-    width: 80px;
-    height: 100px;
-}
-
-.div-logo-user-carrito {
-    display: flex;
-    margin: 20px;
-
-}
-
-.logos-nav {
-    padding: 8px;
-    width: 40px;
-    height: 40px;
+.div-logo h1 {
+    font-family: 'Pacifico', cursive;
+    font-size: 2rem;
+    color: #d17878;
+    line-height: 1.2;
 }
 
 .div-pages ul {
-    list-style: none;
     display: flex;
-    justify-content: space-around;
+    gap: 1.5rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.page {
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: #ec407a;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.page::after {
+    content: '';
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    background-color: #ec407a;
+    bottom: -4px;
+    left: 0;
+    transition: width 0.3s ease;
+}
+
+.page:hover {
+    color: #d63384;
+}
+
+.page:hover::after {
+    width: 100%;
+}
+
+.div-icons {
+    display: flex;
     align-items: center;
+    gap: 1rem;
 }
 
-.div-pages ul li {
-    margin: 30px;
-}
 
-.logos-nav:hover {
-    filter: drop-shadow(0 0 8px #d94f70);
-    transform: scale(1.1);
-    transition: transform 0.2s ease;
+.nav-icon{
+    background-color: transparent;
+    border: none;
+    color: #d17878;
+    font-size: 1.4rem;
     cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.nav-icon:hover {
+    color: #ec407a;
 }

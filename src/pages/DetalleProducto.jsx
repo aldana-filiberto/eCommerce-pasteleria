@@ -1,15 +1,18 @@
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link, useNavigate, Navigate } from 'react-router-dom';
 import { useContext } from 'react';
 import { CartContext } from '../context/CartContext';
+import { ProductContext } from '../context/ProductContext';
 import '../styles/DetallesProducto.css';
 
 const DetalleProducto = () => {
-    const { productos, agregarProducto } = useContext(CartContext)
+    const {agregarProducto } = useContext(CartContext);
+    const { productos } = useContext(ProductContext);
     const { id } = useParams();
     const producto = productos.find(producto => producto.id == id);
+    const navigate = useNavigate();
 
     if (!producto) {
-        return <p style={{ textAlign: 'center', marginTop: '2rem', color: 'red' }}>Producto no encontrado</p>;
+        return  <Navigate to="/not-found" replace />
     }
 
     return (
@@ -24,10 +27,7 @@ const DetalleProducto = () => {
                 <button onClick={() => agregarProducto(producto)} className="btn-agregar">
                     Agregar al carrito
                 </button>
-
-                <Link to="/productos" className="btn-volver">
-                    Volver a productos
-                </Link>
+                <button className="btn-agregar" onClick={()=>navigate(-1)}> Volver </button>
             </div>
         </div>
     );

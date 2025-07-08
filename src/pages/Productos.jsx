@@ -1,28 +1,18 @@
-import React from 'react'
-import Header from '../componentes/Header'
+
+import Header from '../componentes/static/Header'
 import ListaProductos from '../componentes/ListaProductos'
-import Footer from '../componentes/Footer'
-import '../styles/Nav.css'
-import '../styles/Footer.css'
+import Footer from '../componentes/static/Footer'
+import CuadroBusqueda from '../componentes/CuadroBusqueda'
+import ProductCard from '../componentes/ProductCard'
 
 const Productos = () => {
-
-    let style = {
-        maxWidth: '800px',
-        margin: '10px auto',
-        fontFamily: 'Tangerine',
-        fontSize: '3.5em',
-        color: '#d94f70',
-        marginBottom: '20px',
-    }
-
     return (
         <div>
             <Header />
-            <h3 className='titulo-dibujado' style={style}>Todos nuestros productos</h3>
-            <ListaProductos tipo={''} nombre={''} masVendido={undefined}  />
+            <h3 className='product-title'>Todos nuestros productos</h3>
+            <CuadroBusqueda/>
+            <ListaProductos Component={ProductCard} />
             <Footer />
-
         </div>
     )
 }
