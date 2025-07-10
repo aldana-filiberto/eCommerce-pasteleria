@@ -62,8 +62,8 @@ const Admin = () => {
             <button className="btn-flotante" onClick={() => setOpen(true)}>+</button>
 
             {open && !openEditor && (
-                <div className="modal-overlay">
-                    <div className="modal-content">
+                <div className="window-overlay">
+                    <div className="window">
                         <button className="modal-close" onClick={() => setOpen(false)}>✖</button>
                         <FormularioProducto onAgregar={agregarProducto} />
                     </div>
@@ -71,8 +71,8 @@ const Admin = () => {
             )}
 
             {openEditor && (
-                <div className="modal-overlay">
-                    <div className="modal-content">
+                <div className="window-overlay">
+                    <div className="window">
                         <button className="modal-close" onClick={() => setOpenEditor(false)}>✖</button>
                         <FormularioEdicion productoSeleccionado={seleccionado} onActualizar={actualizarProducto} />
                     </div>

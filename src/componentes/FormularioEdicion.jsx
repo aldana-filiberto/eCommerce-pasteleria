@@ -43,90 +43,100 @@ function FormularioEdicion({ productoSeleccionado, onActualizar }) {
         onActualizar(producto)
     };
 
+    const style = {
+        color: 'red',
+        margin: '0px',
+        fontSize:'0.7rem'
+    }
+
     return (
-        <form className="form-edicion" onSubmit={handleSubmit}>
+        <form className="form" onSubmit={handleSubmit}>
             <h2>Editar Producto</h2>
-            <div>
-                <label>Nombre:</label>
-                <input
-                    type="text"
-                    name="nombre"
-                    value={producto.nombre || ''}
-                    onChange={handleChange}
-                />
-                {errores.nombre && <p style={{ color: 'red' }}>{errores.nombre}</p>}
+            <div className='columnas'>
+                <div className='col-form'>
+                    <label>Nombre:</label>
+                    <input
+                        type="text"
+                        name="nombre"
+                        value={producto.nombre || ''}
+                        onChange={handleChange}
+                    />
+                    {errores.nombre && <p style={style}>{errores.nombre}</p>}
+
+                    <label>Imagen URL:</label>
+                    <input
+                        type="text"
+                        name="imagen"
+                        value={producto.imagen || ''}
+                        onChange={handleChange}
+                    />
+                    {errores.imagen && <p style={style}>{errores.imagen}</p>}
+
+                    <label>Precio:</label>
+                    <input
+                        type="number"
+                        name="precio"
+                        value={producto.precio || ''}
+                        onChange={handleChange}
+                        min="0"
+                    />
+                    {errores.precio && <p style={style}>{errores.precio}</p>}
+
+                    <label>stock:</label>
+                    <input
+                        type="number"
+                        name="stock"
+                        value={producto.stock || ''}
+                        onChange={handleChange}
+                    />
+                    {errores.stock && <p style={style}>{errores.stock}</p>}
+
+                </div>
+
+
+                <div className='col-form'>
+                    <label>Descripción:</label>
+                    <textarea
+                        type="text"
+                        name="descripcion"
+                        value={producto.descripcion || ''}
+                        onChange={handleChange}
+                        style={{
+                            width: '100%',
+                            height: '50%',
+                            padding: '10px',
+                            fontSize: '1rem',
+                            border: '2px solid #ccc',
+                            borderRadius: '8px',
+                            resize: 'none',
+                            outline: 'none'
+                        }}
+                    />
+                    {errores.descripcion && <p style={style}>{errores.descripcion}</p>}
+
+
+                    <label>Categoría:</label>
+                    <select name="categoria" value={producto.categoria || ''} onChange={handleChange}>
+                        <option value="pasteleria">Pastelería</option>
+                        <option value="panaderia">Panadería</option>
+                    </select>
+
+
+                    <div class="checkbox-group">
+                        <label>Más Vendido:</label>
+                        <input
+                            type="checkbox"
+                            name="masVendido"
+                            checked={producto.masVendido}
+                            onChange={(e) =>
+                                setProducto({ ...producto, masVendido: e.target.checked }) // <-- Captura true/false
+                            }
+                        />
+                    </div>
+                </div>
             </div>
-            <div>
-                <label>Descripción:</label>
-                <textarea
-                    type="text"
-                    name="descripcion"
-                    value={producto.descripcion || ''}
-                    onChange={handleChange}
-                    style={{
-                        width: '100%',
-                        height: '150px',
-                        padding: '10px',
-                        fontSize: '1rem',
-                        border: '2px solid #ccc',
-                        borderRadius: '8px',
-                        resize: 'none',
-                        outline: 'none'
-                    }}
-                />
-                {errores.descripcion && <p style={{ color: 'red' }}>{errores.descripcion}</p>}
-            </div>
-            <div>
-                <label>Precio:</label>
-                <input
-                    type="number"
-                    name="precio"
-                    value={producto.precio || ''}
-                    onChange={handleChange}
-                    min="0"
-                />
-                {errores.precio && <p style={{ color: 'red' }}>{errores.precio}</p>}
-            </div>
-            <div>
-                <label>stock:</label>
-                <input
-                    type="number"
-                    name="stock"
-                    value={producto.stock || ''}
-                    onChange={handleChange}
-                />
-                {errores.stock && <p style={{ color: 'red' }}>{errores.stock}</p>}
-            </div>
-            <div>
-                <label>Imagen URL:</label>
-                <input
-                    type="text"
-                    name="imagen"
-                    value={producto.imagen || ''}
-                    onChange={handleChange}
-                />
-                {errores.imagen && <p style={{ color: 'red' }}>{errores.imagen}</p>}
-            </div>
-            <div>
-                <label>Categoría:</label>
-                <select name="categoria" value={producto.categoria || ''} onChange={handleChange}>
-                    <option value="pasteleria">Pastelería</option>
-                    <option value="panaderia">Panadería</option>
-                </select>
-            </div>
-            <div>
-                <label>Más Vendido:</label>
-                <input
-                    type="checkbox"
-                    name="masVendido"
-                    checked={producto.masVendido}
-                    onChange={(e) =>
-                        setProducto({ ...producto, masVendido: e.target.checked }) // <-- Captura true/false
-                    }
-                />
-            </div>
-            <button type="submit">Actualizar Producto</button>
-        </form>
+            <button className='btn-editar' type="submit">Actualizar Producto</button>
+        </form >
     );
 }
 export default FormularioEdicion;

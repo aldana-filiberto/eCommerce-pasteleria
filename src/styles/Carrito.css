@@ -12,7 +12,7 @@
     transition: right 0.3s ease-in-out;
     display: flex;
     flex-direction: column;
-    overflow-y: auto;
+    /* overflow-y: auto; */
     border-left: 4px solid #f7c7d4;
 }
 
@@ -23,7 +23,7 @@
 .cart-header {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-self: flex-start;
 }
 
 .cart-header div {
@@ -38,6 +38,7 @@
 .cart-title {
     font-family: 'Pacifico', cursive;
     color: #d9534f;
+    text-align: start;
 
 }
 
@@ -48,12 +49,10 @@
     font-size: 2rem;
     color: #404040;
     cursor: pointer;
-    transition: transform 0.2s ease;
     align-self: flex-end;
 }
 
 .close-button:hover {
-    /* transform: scale(1.2); */
     color: #d33;
 }
 
@@ -62,7 +61,7 @@
     align-items: center;
     gap: 0.5rem;
     font-size: 1rem;
-    align-self: center;
+    align-self: flex-start;
     background-color: #ffafaf;
     color: rgb(249, 0, 0);
     border: none;
@@ -74,6 +73,8 @@
 
 .cart-content {
     flex-grow: 1;
+    overflow-y: auto;
+    padding-bottom: 1rem;
 }
 
 .cart-items {
@@ -140,8 +141,8 @@
     gap: 1rem;
 }
 
-/* Botones de cantidad en el carrito */
-.btn-activo-cart, .btn-desactivado-cart {
+.btn-activo-cart,
+.btn-desactivado-cart {
     background-color: transparent;
     color: #868486;
     border: none;
@@ -150,7 +151,8 @@
     cursor: pointer;
 }
 
-.btn-activo-cart:hover, .btn-desactivado-cart:hover{
+.btn-activo-cart:hover,
+.btn-desactivado-cart:hover {
     color: #ae00ff;
 }
 
@@ -161,6 +163,10 @@
     text-align: left;
     font-size: 1.2rem;
     color: #333;
+    background-color: #fff;
+    position: sticky;
+    bottom: 0;
+    z-index: 999;
 }
 
 .btn-compra {

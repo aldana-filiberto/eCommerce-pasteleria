@@ -1,4 +1,8 @@
+
 .contacto-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     max-width: 1000px;
     margin: 0 auto;
     padding: 2rem;
@@ -62,6 +66,7 @@
     border-radius: 10px;
     color: #5a3b35;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    text-align: center;
 }
 
 .contacto-info h4 {

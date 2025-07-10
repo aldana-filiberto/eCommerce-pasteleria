@@ -24,10 +24,10 @@ const DetalleProducto = () => {
                 <p><strong>Precio:</strong> ${producto.precio}</p>
                 <p><strong>Stock disponible:</strong> {producto.stock}</p>
 
-                <button onClick={() => agregarProducto(producto)} className="btn-agregar">
+                <button onClick={() => agregarProducto(producto)} className="btn-addCart">
                     Agregar al carrito
                 </button>
-                <button className="btn-agregar" onClick={()=>navigate(-1)}> Volver </button>
+                <button className="btn-volver" onClick={()=>navigate(-1)}> Volver </button>
             </div>
         </div>
     );

@@ -1,7 +1,6 @@
 
 /*------------------------------------Admin CARD-----------------------------------*/
 
-/* Tarjeta de producto */
 .admin-card {
     background-color: white;
     border-radius: 10px;
@@ -47,8 +46,6 @@
     margin-bottom: 1rem;
 }
 
-
-/* Botones dentro de tarjeta */
 .editButton,
 .deleteButton {
     width: 100%;

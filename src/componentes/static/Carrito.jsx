@@ -27,7 +27,7 @@ const Carrito = () => {
                     <p style={{ color: 'red', textAlign: 'center' }}>El carrito esta vacío</p>
                 ) : (
                     <div className="cart-items">
-                        <button className="vaciar-btn" onClick={vaciarCarrito}> <RiDeleteBinLine />    Vaciar carrito</button>
+                        <button className="vaciar-btn" onClick={vaciarCarrito}> <RiDeleteBinLine />Eliminar carrito</button>
                         {carrito.map((item) => (
                             <div key={item.id} className="cart-item">
 
@@ -63,12 +63,9 @@ const Carrito = () => {
                 )}
 
             </div>
-
             <div className="cart-total">
                 <p>Total: ${carrito.length === 0 ? 0 : total}</p>
-            </div>
-            <div>
-                <button onClick={confirmarCompra} style={carrito.length === 0 ? { backgroundColor:'#7c6c7d', cursor:'not-allowed'} : {backgroundColor: '#960886'}} disabled={carrito.length===0} className='btn-compra'>Finalizar compra</button>
+                <button onClick={confirmarCompra} style={carrito.length === 0 ? { backgroundColor: '#7c6c7d', cursor: 'not-allowed' } : { backgroundColor: '#960886' }} disabled={carrito.length === 0} className='btn-compra'>Finalizar compra</button>
             </div>
         </div>
 

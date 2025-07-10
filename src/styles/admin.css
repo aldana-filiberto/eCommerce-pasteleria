@@ -7,7 +7,6 @@
     min-height: 100vh;
 }
 
-/* Título principal */
 .title {
     text-align: center;
     font-size: 2.5rem;
@@ -22,8 +21,6 @@
     min-height: 80vh;
 }
 
-
-/* Navegación superior */
 .nav {
     display: flex;
     justify-content: flex-end;
@@ -82,7 +79,7 @@
 
 /*---*/
 
-.modal-overlay {
+.window-overlay {
     position: fixed;
     top: 0;
     left: 0;
@@ -96,18 +93,16 @@
     z-index: 999;
 }
 
-.modal-content {
+.window {
     background-color: #fff;
-    padding: 20px 30px;
     border-radius: 10px;
-    max-width: 500px;
-    width: 90%;
-    max-height: 95vh;
-    /* 👈 Limita la altura máxima al 80% de la pantalla */
-    overflow-y: auto;
-    /* 👈 Agrega scroll interno si el contenido se pasa */
+    padding: 2rem;
+    width: 900px;
+    max-width: 90vw;
+    max-height: 90vh;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
     position: relative;
+    display: flex;
 }
 
 @keyframes modalFadeIn {
@@ -125,7 +120,7 @@
 .modal-close {
     position: absolute;
     top: 10px;
-    right: 15px;
+    right: 10px;
     background: transparent;
     border: none;
     font-size: 1.5rem;
@@ -136,4 +131,59 @@
 
 .modal-close:hover {
     color: #e74c3c;
+}
+
+/* -------------------- RESPONSIVE -------------------- */
+@media (max-width: 768px) {
+    .container {
+        padding: 1rem;
+    }
+
+    .title {
+        font-size: 1.8rem;
+    }
+
+    .nav {
+        flex-direction: column;
+        align-items: flex-end;
+        padding: 0.5rem;
+    }
+
+    .navItem button {
+        width: 100%;
+        margin: 0.3rem 0;
+    }
+
+    .btn-flotante {
+        width: 50px;
+        height: 50px;
+        font-size: 28px;
+        bottom: 15px;
+        right: 15px;
+    }
+
+    .window {
+        width: 95%;
+        padding: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .title {
+        font-size: 1.5rem;
+    }
+
+    .btn-flotante {
+        width: 45px;
+        height: 45px;
+        font-size: 24px;
+    }
+
+    .window {
+        padding: 0.8rem;
+    }
+
+    .modal-close {
+        font-size: 1.2rem;
+    }
 }

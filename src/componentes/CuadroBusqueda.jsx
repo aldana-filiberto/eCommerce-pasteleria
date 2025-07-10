@@ -1,27 +1,24 @@
-import React from 'react'
-import '../styles/cuadroBusq.css';
+import React, { useContext, useEffect } from 'react';
 import { RiResetRightFill } from "react-icons/ri";
 import { ProductContext } from "../context/ProductContext";
-import { useContext, useState, useEffect } from 'react';
+import '../styles/cuadroBusq.css';
 
 const CuadroBusqueda = () => {
-
     const { filtros, setFiltros } = useContext(ProductContext);
 
-    // useEffect(() => {
-    //     setFiltros({
-    //         nombre: '',
-    //         categoria: '',
-    //         masVendido: false,
-    //     });
-
-    // }, []);
+    useEffect(() => {
+        setFiltros({
+            nombre: '',
+            categoria: '',
+            masVendido: false,
+        });
+    }, []);
 
     const handleFilter = (e) => {
-        const { name, value } = e.target;
+        const { name, value, type, checked } = e.target;
         setFiltros(prevFiltros => ({
             ...prevFiltros,
-            [name]: value
+            [name]: type === 'checkbox' ? checked : value
         }));
     };
 
@@ -33,33 +30,42 @@ const CuadroBusqueda = () => {
             masVendido: false,
         });
     };
+
     return (
-        <div>
+        <form className='form-buscar' onSubmit={handleSubmit}>
+            <input
+                type="text"
+                name='nombre'
+                value={filtros.nombre || ''}
+                placeholder='Buscar producto...'
+                onChange={handleFilter}
+            />
 
-            <form className='form-buscar' onSubmit={handleSubmit}>
-                <input type="text" name='nombre' value={filtros.nombre || ''} placeholder='Buscar producto...' onChange={handleFilter} />
+            <select
+                name="categoria"
+                value={filtros.categoria || ''}
+                onChange={handleFilter}
+            >
+                <option value="">Categoría</option>
+                <option value="pasteleria">Pastelería</option>
+                <option value="panaderia">Panadería</option>
+            </select>
 
-                <div className="checkbox-container">
-                    <label>Categoría:</label>
-                    <select name="categoria" value={filtros.categoria || ''} onChange={handleFilter}>
-                        <option value="">-</option>
-                        <option value="pasteleria">Pastelería</option>
-                        <option value="panaderia">Panadería</option>
-                    </select>
+            <label className="checkbox-label">
+                <input
+                    type="checkbox"
+                    name='masVendido'
+                    checked={filtros.masVendido}
+                    onChange={handleFilter}
+                />
+                Más Vendido
+            </label>
 
-                    <label>Más Vendido:</label>
-                    <input type="checkbox" name='masVendido' checked={filtros.masVendido} onChange={(e) =>
-                        setFiltros({
-                            ...filtros,
-                            masVendido: e.target.checked
-                        })
-                    } />
-                    <button type='submit'><RiResetRightFill /></button>
-                </div>
-            </form>
+            <button type='submit' title='Reiniciar filtros'>
+                <RiResetRightFill />
+            </button>
+        </form>
+    );
+};
 
-        </div>
-    )
-}
-
-export default CuadroBusqueda
+export default CuadroBusqueda;

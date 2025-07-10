@@ -1,34 +1,79 @@
-
-.checkbox-container {
+.form-buscar {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: space-around;
+    padding: 1rem;
+    background-color: #fff0f6;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    font-family: 'Segoe UI', sans-serif;
+    margin: 0px 5%;
 }
 
-.form-buscar input {
-    padding: 10px;
+.form-buscar input[type="text"],
+.form-buscar select {
+    padding: 0.6rem;
     border: 1px solid #ccc;
     border-radius: 6px;
     font-size: 1rem;
-    transition: border-color 0.2s ease-in-out;
+    min-width: 180px;
+    transition: border-color 0.2s ease;
+    background-color: #fff;
 }
 
-.form-buscar input:focus {
-    border-color: #3498db;
+.form-buscar input[type="text"] {
+    width: 40%;
+}
+
+.form-buscar input:focus,
+.form-buscar select:focus {
+    border-color: #960886;
     outline: none;
 }
 
-.form-buscar button[type="submit"] {
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 1rem;
+    color: #333;
+}
+
+.form-buscar input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    accent-color: #960886;
+}
+
+.form-buscar button {
     background-color: #960886;
     color: white;
     border: none;
-    padding: 12px;
-    font-size: 1rem;
+    padding: 0.6rem 1rem;
     border-radius: 6px;
+    font-size: 1.2rem;
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
 
-.form-buscar button[type="submit"]:hover {
+.form-buscar button:hover {
     background-color: #730666;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .form-buscar {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .form-buscar input[type="text"],
+    .form-buscar select {
+        width: 100%;
+    }
+
+    .form-buscar button {
+        width: 100%;
+    }
 }
