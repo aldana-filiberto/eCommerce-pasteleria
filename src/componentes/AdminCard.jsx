@@ -1,6 +1,6 @@
 import { useContext } from 'react'
 import { AdminContext } from '../context/AdminContext';
-import '../styles/admin.css';
+import '../styles/adminCard.css';
 
 const AdminCard = ({ producto }) => {
     const { setOpenEditor, setSeleccionado, eliminarProducto } = useContext(AdminContext);

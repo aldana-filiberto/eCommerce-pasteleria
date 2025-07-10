@@ -22,24 +22,55 @@
 
 .cart-header {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
     align-items: center;
-    margin-bottom: 1rem;
+}
+
+.cart-header div {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    margin-bottom: 2%;
+
+}
+
+
+.cart-title {
+    font-family: 'Pacifico', cursive;
+    color: #d9534f;
+
 }
 
 .close-button {
+    display: block;
     background-color: transparent;
     border: none;
-    font-size: 1.5rem;
-    color: #555;
+    font-size: 2rem;
+    color: #404040;
     cursor: pointer;
     transition: transform 0.2s ease;
+    align-self: flex-end;
 }
 
 .close-button:hover {
-    transform: scale(1.2);
+    /* transform: scale(1.2); */
     color: #d33;
 }
+
+.vaciar-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1rem;
+    align-self: center;
+    background-color: #ffafaf;
+    color: rgb(249, 0, 0);
+    border: none;
+    padding: 0.2rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
 
 .cart-content {
     flex-grow: 1;
@@ -98,26 +129,54 @@
     background-color: #d9534f;
 }
 
+.select-cantidad-carrito {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2%;
+    border: 1px solid #c803ff;
+    border-radius: 10px;
+    gap: 1rem;
+}
+
+/* Botones de cantidad en el carrito */
+.btn-activo-cart, .btn-desactivado-cart {
+    background-color: transparent;
+    color: #868486;
+    border: none;
+    padding: 3px 8px;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+.btn-activo-cart:hover, .btn-desactivado-cart:hover{
+    color: #ae00ff;
+}
+
+
 .cart-total {
     border-top: 1px solid #ddd;
     padding-top: 1rem;
-    text-align: right;
+    text-align: left;
     font-size: 1.2rem;
     color: #333;
 }
 
-button.vaciar-btn {
-    background-color: #ff6961;
+.btn-compra {
+    width: 100%;
+    padding: 2%;
+    background-color: #960886;
     color: white;
     border: none;
-    padding: 0.5rem 1rem;
     margin-bottom: 1rem;
     border-radius: 6px;
     cursor: pointer;
     transition: background-color 0.2s ease;
-    font-size: 1.5rem;
+    font-size: 1rem;
 }
 
-button.vaciar-btn:hover {
-    background-color: #d9534f;
+.btn-compra:hover {
+    background-color: #730666;
+
 }

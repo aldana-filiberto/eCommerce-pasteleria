@@ -4,8 +4,8 @@ export const ProductContext = createContext()
 
 export const ProductProvider = ({ children }) => {
     const [productos, setProductos] = useState([]);
-    const [productosFiltrados, setProductosFiltrados] = useState([])
-    const [filtros, setFiltros] = useState({ nombre: '', categoria: '', masVendido: false })
+    const [productosFiltrados, setProductosFiltrados] = useState([]);
+    const [filtros, setFiltros] = useState({ nombre: '', categoria: '', masVendido: false });
     const [cargando, setCargando] = useState(false);
     const [error, setError] = useState(null);
 

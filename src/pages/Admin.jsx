@@ -1,7 +1,6 @@
 import { useContext } from 'react'
 import { AuthContext } from '../context/AuthContext';
 import { AdminContext } from '../context/AdminContext';
-import {ProductContext} from '../context/ProductContext';
 import { useNavigate, Link } from 'react-router-dom';
 import { IoMdExit } from "react-icons/io";
 import spinner from '../assets/iconos/loading.gif'
@@ -23,10 +22,8 @@ const Admin = () => {
         openEditor,
         setOpenEditor,
         seleccionado,
-        setSeleccionado,
         agregarProducto,
-        actualizarProducto,
-        eliminarProducto,
+        actualizarProducto
     } = useContext(AdminContext);
 
     const navigate = useNavigate();
@@ -57,7 +54,7 @@ const Admin = () => {
                     </nav>
                     <h1 className="title">Panel Administrativo</h1>
                     <CuadroBusqueda/>
-                    <ListaProductos Component={ AdminCard } />
+                    <ListaProductos Component={ AdminCard } cantidadItems={6} />
                     
                 </>
 

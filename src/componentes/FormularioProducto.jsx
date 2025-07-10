@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import '../styles/formsAdmin.css';
+
 
 function FormularioProducto({ onAgregar }) {
     const [producto, setProducto] = useState({
@@ -13,8 +15,8 @@ function FormularioProducto({ onAgregar }) {
     const [errores, setErrores] = useState({});
 
     const handleChange = (e) => {
-        const { name, value } = e.target;
-        setProducto({ ...producto, [name]: value });
+        const { name, value, type } = e.target;
+        setProducto({ ...producto, [name]: type === 'number' ? Number(value) : value });
     };
 
     const validarFormulario = () => {
@@ -31,9 +33,6 @@ function FormularioProducto({ onAgregar }) {
         if (!producto.stock || producto.stock <= 0) {
             nuevosErrores.stock = 'El stock debe ser mayor a 0.';
         }
-        if (!producto.categoria.trim() || producto.categoria.length < 5) {
-            nuevosErrores.categoria = 'La categoria debe tener al menos 5 caracteres.';
-        }
         if (!producto.imagen.trim() || producto.imagen.length < 5) {
             nuevosErrores.imagen = 'La imagen debe tener al menos 5 caracteres.';
         }
@@ -46,7 +45,7 @@ function FormularioProducto({ onAgregar }) {
         if (!validarFormulario()) {
             return;
         }
-        onAgregar(producto); // Llamada a la función para agregar el producto
+        onAgregar(producto);
         setProducto({
             nombre: '',
             precio: '',
@@ -55,7 +54,7 @@ function FormularioProducto({ onAgregar }) {
             stock: '',
             imagen: '',
             masVendido: false,
-        }); // Limpiar el formulario
+        });
     };
 
     return (
@@ -70,9 +69,22 @@ function FormularioProducto({ onAgregar }) {
                 {errores.nombre && <p style={{ color: 'red' }}>{errores.nombre}</p>}
             </div>
             <div>
-                <label>descripcion:</label>
-                <input
-                    type="text" name="descripcion" value={producto.descripcion} onChange={handleChange}  />
+                <label>descripción:</label>
+                <textarea
+                    type="text"
+                    name="descripcion"
+                    value={producto.descripcion}
+                    onChange={handleChange}
+                    style={{
+                        width: '100%',
+                        height: '150px',
+                        padding: '10px',
+                        fontSize: '1rem',
+                        border: '2px solid #ccc',
+                        borderRadius: '8px',
+                        resize: 'none',
+                        outline: 'none'
+                    }} />
                 {errores.descripcion && <p style={{ color: 'red' }}>{errores.descripcion}</p>}
             </div>
             <div>
@@ -104,13 +116,10 @@ function FormularioProducto({ onAgregar }) {
             </div>
             <div>
                 <label>Categoría:</label>
-                <input
-                    type="text"
-                    name="categoria"
-                    value={producto.categoria || ''}
-                    onChange={handleChange}
-                />
-                {errores.categoria && <p style={{ color: 'red' }}>{errores.categoria}</p>}
+                <select name="categoria" value={producto.categoria || ''} onChange={handleChange}>
+                    <option value="pasteleria">Pastelería</option>
+                    <option value="panaderia">Panadería</option>
+                </select>
             </div>
             <div>
                 <label>Más Vendido:</label>
@@ -119,10 +128,9 @@ function FormularioProducto({ onAgregar }) {
                     name="masVendido"
                     checked={producto.masVendido}
                     onChange={(e) =>
-                        setProducto({ ...producto, masVendido: e.target.checked }) 
+                        setProducto({ ...producto, masVendido: e.target.checked })
                     }
                 />
-                {errores.masVendido && <p style={{ color: 'red' }}>{errores.masVendido}</p>}
             </div>
 
             <button type="submit">Agregar Producto</button>

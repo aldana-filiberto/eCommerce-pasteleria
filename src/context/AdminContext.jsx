@@ -1,4 +1,4 @@
-import { useEffect, useState, createContext, useContext } from "react";
+import { useState, createContext, useContext } from "react";
 import Swal from "sweetalert2";
 import { ProductContext } from './ProductContext';
 

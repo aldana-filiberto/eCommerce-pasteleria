@@ -46,7 +46,7 @@ const Nav = () => {
                         (role === 'client')
                             ? (
                                 <>
-                                    <button className='nav-icon' onClick={() => setCartOpen(true)} > <FaShoppingCart /> </button>
+                                    <button className='nav-icon' onClick={() => setCartOpen(true)} > <FaShoppingCart/> </button>
                                     <button className='nav-icon' onClick={salir}> <IoMdExit /></button>
                                     <Carrito />
                                 </>

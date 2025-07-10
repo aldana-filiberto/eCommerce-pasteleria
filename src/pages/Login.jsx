@@ -1,11 +1,18 @@
-import { useContext } from 'react'
+import { useContext, useEffect } from 'react'
 import { AuthContext } from '../context/AuthContext';
 import { Link } from 'react-router-dom';
 import '../styles/Login.css';
 
 const Login = () => {
 
-    const { email, setEmail, password, setPassword, handleSubmit, errors } = useContext(AuthContext);
+    const { email, setEmail, password, setPassword, handleSubmit, errors, setIsAuth, setRole } = useContext(AuthContext);
+
+    useEffect(() => {
+        setIsAuth(false);
+        setRole('');
+        localStorage.removeItem('isAuth');
+        localStorage.removeItem('role');
+    }, []);
 
     return (
         <div className="login-container">
@@ -45,7 +52,7 @@ const Login = () => {
                 <button type="submit">Ingresar</button>
 
                 <p className="extra-text">
-                    <Link  to='/'>Regresar a la home</Link>
+                    <Link to='/'>Regresar a la home</Link>
                 </p>
             </form>
         </div>

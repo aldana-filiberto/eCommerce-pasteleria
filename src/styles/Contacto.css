@@ -67,3 +67,32 @@
 .contacto-info h4 {
     margin-bottom: 1rem;
 }
+
+
+@media screen and (max-width: 768px) {
+    .contacto-container {
+        padding: 1rem;
+    }
+
+    .contacto-content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .contacto-form {
+        width: 100%;
+    }
+
+    .contacto-info {
+        width: 100%;
+        margin-top: 1.5rem;
+    }
+
+    .contacto-container h2 {
+        font-size: 1.6rem;
+    }
+
+    .intro-text {
+        font-size: 0.95rem;
+    }
+}

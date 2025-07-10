@@ -11,7 +11,7 @@ const Productos = () => {
             <Header />
             <h3 className='product-title'>Todos nuestros productos</h3>
             <CuadroBusqueda/>
-            <ListaProductos Component={ProductCard} />
+            <ListaProductos Component={ProductCard} cantidadItems={10} />
             <Footer />
         </div>
     )

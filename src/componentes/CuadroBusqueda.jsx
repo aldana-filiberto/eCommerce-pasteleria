@@ -1,5 +1,5 @@
 import React from 'react'
-import '../styles/Productos.css';
+import '../styles/cuadroBusq.css';
 import { RiResetRightFill } from "react-icons/ri";
 import { ProductContext } from "../context/ProductContext";
 import { useContext, useState, useEffect } from 'react';
@@ -8,14 +8,14 @@ const CuadroBusqueda = () => {
 
     const { filtros, setFiltros } = useContext(ProductContext);
 
-    useEffect(() => {
-        setFiltros({
-            nombre: '',
-            categoria: '',
-            masVendido: false,
-        });
+    // useEffect(() => {
+    //     setFiltros({
+    //         nombre: '',
+    //         categoria: '',
+    //         masVendido: false,
+    //     });
 
-    }, []);
+    // }, []);
 
     const handleFilter = (e) => {
         const { name, value } = e.target;

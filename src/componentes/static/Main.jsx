@@ -34,7 +34,7 @@ const Main = () => {
 
             <section>
                 <h2>Nuestros productos mas vendidos</h2>
-                <ListaProductos Component={ProductCard}/>
+                <ListaProductos Component={ProductCard} cantidadItems={10}/>
             </section>
         </main>
     )
