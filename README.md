@@ -1,12 +1,57 @@
-# React + Vite
+# 🎂 eCommerce de Pastelería
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este es un proyecto de eCommerce desarrollado en **React**, orientado a una pastelería. Permite a los usuarios navegar por productos, agregarlos al carrito, y cuenta con un **panel de administración protegido** donde se pueden realizar operaciones CRUD sobre los productos mediante **MockAPI**.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Funcionalidades Principales
 
-## Expanding the ESLint configuration
+### 🛍️ Cliente
+- Visualización de productos con imagen, nombre, descripción y precio.
+- Barra de búsqueda para encontrar productos por nombre.
+- Paginación para mejorar la experiencia de navegación.
+- Carrito de compras con:
+  - Agregado, eliminación y conteo de productos.
+  - Cálculo automático del total.
+- **Notificaciones** con [React Toastify](https://fkhadra.github.io/react-toastify/).
+- **Alertas elegantes** con [SweetAlert](https://sweetalert2.github.io/).
+- Iconografía con [React Icons](https://react-icons.github.io/react-icons/).
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### 🔐 Autenticación y Seguridad
+- **Autenticación de usuarios.**
+- **Rutas protegidas** para evitar acceso no autorizado al panel de administrador.
+
+### 🛠️ Panel de Administración
+- CRUD completo de productos (Crear, Leer, Actualizar y Eliminar).
+- Consumo de datos desde **MockAPI**.
+- Gestión de productos en tiempo real.
+
+---
+
+## 🧪 Tecnologías Utilizadas
+
+- **React**
+- **React Router DOM**
+- **Context API** (manejo global de estados: carrito, admin, etc.)
+- **SweetAlert2**
+- **React Toastify**
+- **React Icons**
+- **Bootstrap**
+- **MockAPI** (para persistencia simulada de datos)
+- **Vite**
+- **CSS** personalizado
+
+---
+
+## 📦 Instalación y Uso
+
+### 1. Clonar el repositorio
+
+### 2. Bash
+```
+git clone https://github.com/aldana-micaela/eCommerce-pasteleria.git
+
+npm install
+
+npm run dev
+```
