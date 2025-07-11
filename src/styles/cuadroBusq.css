@@ -11,6 +11,10 @@
     margin: 0px 5%;
 }
 
+.form-buscar > * {
+    margin: 2% 0;
+}
+
 .form-buscar input[type="text"],
 .form-buscar select {
     padding: 0.6rem;

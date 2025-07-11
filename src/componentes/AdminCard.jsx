@@ -11,7 +11,7 @@ const AdminCard = ({ producto }) => {
             <div className='card-content'>
                 <img src={producto.imagen} alt={producto.nombre} />
                 <span>{producto.nombre}</span>
-                <span>${producto.precio}</span>
+                <span className='precio'>${producto.precio}</span>
             </div>
 
             <div className='card-buttons'>

@@ -1,10 +1,7 @@
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 2rem;
+.container-admin {
+    padding: 1rem;
     background-color: #FFDEDE;
     font-family: 'Segoe UI', sans-serif;
-    min-height: 100vh;
 }
 
 .title {
@@ -21,9 +18,8 @@
     min-height: 80vh;
 }
 
-.nav {
+.nav-admin {
     display: flex;
-    justify-content: flex-end;
     margin-bottom: 2rem;
     gap: 1rem;
     background-color: #000000;

@@ -3,22 +3,22 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    max-width: 1000px;
-    margin: 0 auto;
+    max-width: 600px;
+    margin: 2% auto;
     padding: 2rem;
     font-family: 'Segoe UI', sans-serif;
     color: #4a2c2a;
+    background-color: #f7d9d9;
+    border-radius: 2%;
 }
 
 .contacto-container h2 {
     text-align: center;
-    margin-bottom: 0.5rem;
     font-size: 2rem;
 }
 
 .intro-text {
     text-align: center;
-    margin-bottom: 2rem;
     color: #6c4a3c;
 }
 
@@ -27,6 +27,7 @@
     flex-wrap: wrap;
     gap: 2rem;
     justify-content: center;
+    padding: 2%;
 }
 
 .contacto-form {
@@ -61,7 +62,7 @@
 }
 
 .contacto-info {
-    background-color: #fff0ed;
+    background-color: #e7e3e3;
     padding: 1.5rem;
     border-radius: 10px;
     color: #5a3b35;

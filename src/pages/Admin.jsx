@@ -37,25 +37,25 @@ const Admin = () => {
 
 
     return (
-        <div className="container">
+        <div className='container-admin'>
+            <nav className='nav-admin'>
+                <ul style={{ listStyle: 'none' }}>
+                    <li className="navItem">
+                        <button> <Link to='/'> Home </Link> </button>
+                        <button onClick={salir}> <IoMdExit /></button>
+                    </li>
+                </ul>
+            </nav>
             {loading ? (
                 <div className="spinner-container">
                     <img className='spinner' src={spinner} alt="Cargando..." width={80} height={80} />
                 </div>
             ) : (
                 <>
-                    <nav className='nav'>
-                        <ul className="nav" style={{ listStyle: 'none' }}>
-                            <li className="navItem">
-                                <button> <Link to='/'> Home </Link> </button>
-                                <button onClick={salir}> <IoMdExit /></button>
-                            </li>
-                        </ul>
-                    </nav>
                     <h1 className="title">Panel Administrativo</h1>
-                    <CuadroBusqueda/>
-                    <ListaProductos Component={ AdminCard } cantidadItems={6} />
-                    
+                    <CuadroBusqueda />
+                    <ListaProductos Component={AdminCard} cantidadItems={6} />
+
                 </>
 
             )}

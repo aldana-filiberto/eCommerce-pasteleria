@@ -10,8 +10,8 @@ export const AdminProvider = ({ children }) => {
     const [seleccionado, setSeleccionado] = useState(null)
     const [openEditor, setOpenEditor] = useState(false)
     const apiUrl = 'https://68642b2a88359a373e97b44f.mockapi.io/productos';
-    
-    const {productos, setProductos} = useContext(ProductContext);
+
+    const { productos, setProductos } = useContext(ProductContext);
 
     const cargarProductos = async () => {
         try {
@@ -81,29 +81,42 @@ export const AdminProvider = ({ children }) => {
         }
     }
 
-    const eliminarProducto = async (id) => {
-        const confirmar = window.confirm('Estas seguro de eliminar el producto?')
-        if (confirmar) {
-            try {
-                const respuesta = await fetch(`${apiUrl}/${id}`, {
-                    method: 'DELETE',
-                })
-                if (!respuesta.ok) throw Error('Error al eliminar')
 
-                Swal.fire({
-                    title: "¡Listo!",
-                    text: "Producto eliminado correctamente.",
-                    icon: "success"
-                });
-                cargarProductos()
-            } catch (error) {
-                Swal.fire({
-                    icon: "error",
-                    title: "Oops...",
-                    text: "Error al eliminar el producto, intentálo más tarde.",
-                });
+
+    const eliminarProducto = (id) => {
+
+        const confirmar = Swal.fire({
+            title: "Estás seguro?",
+            text: "El producto seleccionado se eliminará",
+            icon: "warning",
+            showCancelButton: true,
+            cancelButtonColor: "#d33",
+            cancelButtonText: "Cancelar",
+            confirmButtonColor: "#33d630ff",
+            confirmButtonText: "Eliminar"
+        }).then(async (result) => {
+            if (result.isConfirmed) {
+                try {
+                    const respuesta = await fetch(`${apiUrl}/${id}`, {
+                        method: 'DELETE',
+                    })
+                    if (!respuesta.ok) throw Error('Error al eliminar')
+
+                    Swal.fire({
+                        title: "¡Listo!",
+                        text: "Producto eliminado correctamente.",
+                        icon: "success"
+                    });
+                    cargarProductos()
+                } catch (error) {
+                    Swal.fire({
+                        icon: "error",
+                        title: "Oops...",
+                        text: "Error al eliminar el producto, intentálo más tarde.",
+                    });
+                }
             }
-        }
+        })
     }
 
 

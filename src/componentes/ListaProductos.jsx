@@ -5,27 +5,36 @@ import SinResultados from './SinResultados';
 import { Pagination } from 'react-bootstrap';
 import '../styles/Productos.css';
 
+import {useWindowWidth} from '../utils/useWindowWidht'
+
 const ListaProductos = ({ Component, cantidadItems }) => {
     const [currentPage, setCurrentPage] = useState(1);
     const { cargando, error, productosFiltrados } = useContext(ProductContext);
+    const [itemPerPage, setItemPerPage] = useState(cantidadItems);
+    const width = useWindowWidth();
 
+    
     useEffect(() => {
-    setCurrentPage(1); // volvemos a la primera página cuando cambian los productos filtrados
-}, [productosFiltrados]);
-
-    const itemPerPage = cantidadItems;
+        if (width >= 2100) setItemPerPage(21);      // pantallas mas grandes
+        else if (width >= 1440 && width < 2560) setItemPerPage(10);      // pantallas grandes
+        else if (width >= 1024 && width <1440) setItemPerPage(9);      // pantallas medianas
+        else if (width >= 768 && width < 1440) setItemPerPage(4);   // tablets
+        else if (width >= 320 && width < 768) setItemPerPage(2);   // tablets
+        else setItemPerPage(4);                     // móviles
+        setCurrentPage(1); // resetea a la página 1 al cambiar cantidad
+    }, [width]);
+    
+    useEffect(() => {
+        setCurrentPage(1); // volvemos a la primera página cuando cambian los productos filtrados
+    }, [productosFiltrados]);
+    
+    // const itemPerPage = cantidadItems;
     const indexOfLast = currentPage * itemPerPage;
     const indexOfFirst = indexOfLast - itemPerPage;
     const currentProducts = productosFiltrados.slice(indexOfFirst, indexOfLast);
     const totalPages = Math.ceil(productosFiltrados.length / itemPerPage);
 
-    const style = {
-        display: 'flex',
-        flexDirection: 'row',
-        justifyContent: 'center',
-        flexWrap: 'wrap',
-        padding: '2rem',
-    };
+
 
     return (
         <>
@@ -38,7 +47,7 @@ const ListaProductos = ({ Component, cantidadItems }) => {
                 <>
                     {productosFiltrados.length !== 0 ? (
                         <section>
-                            <div style={style}>
+                            <div className='grid'>
                                 {currentProducts.map((producto, index) => (
                                     <Component key={index} producto={producto} />
                                 ))}
@@ -51,7 +60,7 @@ const ListaProductos = ({ Component, cantidadItems }) => {
             )}
 
             {totalPages > 1 && (
-                <Pagination className="justify-content-center">
+                <Pagination className="justify-content-center" style={{display:'flex', flexWrap: 'wrap'}}>
                     <Pagination.Prev
                         onClick={() => setCurrentPage((p) => Math.max(p - 1, 1))}
                         disabled={currentPage === 1}
