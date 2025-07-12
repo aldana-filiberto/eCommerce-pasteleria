@@ -8,7 +8,7 @@ Este es un proyecto de eCommerce desarrollado en **React**, orientado a una past
 
 ### 🛍️ Cliente
 - Visualización de productos con imagen, nombre, descripción y precio.
-- Barra de búsqueda para encontrar productos por nombre.
+- Barra de búsqueda para encontrar productos por nombre, categoria o popularidad.
 - Paginación para mejorar la experiencia de navegación.
 - Carrito de compras con:
   - Agregado, eliminación y conteo de productos.
