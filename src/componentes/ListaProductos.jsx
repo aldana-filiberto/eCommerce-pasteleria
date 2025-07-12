@@ -15,17 +15,17 @@ const ListaProductos = ({ Component, cantidadItems }) => {
 
     
     useEffect(() => {
-        if (width >= 2100) setItemPerPage(21);      // pantallas mas grandes
-        else if (width >= 1440 && width < 2560) setItemPerPage(10);      // pantallas grandes
-        else if (width >= 1024 && width <1440) setItemPerPage(9);      // pantallas medianas
-        else if (width >= 768 && width < 1440) setItemPerPage(4);   // tablets
-        else if (width >= 320 && width < 768) setItemPerPage(2);   // tablets
-        else setItemPerPage(4);                     // móviles
+        if (width >= 2100) setItemPerPage(21);      
+        else if (width >= 1440 && width < 2560) setItemPerPage(10);      
+        else if (width >= 1024 && width <1440) setItemPerPage(9);      
+        else if (width >= 768 && width < 1440) setItemPerPage(4);  
+        else if (width >= 320 && width < 768) setItemPerPage(2);   
+        else setItemPerPage(2);                     
         setCurrentPage(1); // resetea a la página 1 al cambiar cantidad
     }, [width]);
     
     useEffect(() => {
-        setCurrentPage(1); // volvemos a la primera página cuando cambian los productos filtrados
+        setCurrentPage(1); 
     }, [productosFiltrados]);
     
     // const itemPerPage = cantidadItems;
