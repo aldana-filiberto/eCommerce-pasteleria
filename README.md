@@ -55,3 +55,9 @@ npm install
 
 npm run dev
 ```
+### Usuarios
+client@example.com
+clave: cliente123
+
+admin@example.com
+clave: admin123
